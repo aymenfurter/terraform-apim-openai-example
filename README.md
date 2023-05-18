@@ -29,8 +29,6 @@ Usage
 The following is an example how the OpenAI Service can be consumed through the APIM. The api_base parameter is used to specify additional parameters (e.g. workload identifier and target Azure OpenAI instance). 
 
 ```python
-
-```python
 from azure.identity import InteractiveBrowserCredential
 
 interactive_credential = InteractiveBrowserCredential(tenant_id="<your_tenant>") 
@@ -54,3 +52,16 @@ response = openai.ChatCompletion.create(
 print(response)
 print(response['choices'][0]['message']['content'])
 ```
+
+Demo
+--------------------
+Users can consume the OpenAI API in the same way like they do when directly talking to cognitive services.
+
+<img src="https://raw.githubusercontent.com/aymenfurter/terraform-apim-openai-example/main/assets/sample-run.png" width="500"/>
+
+
+
+All events are channeled into the event hub, from which they can be seamlessly imported into the Data Explorer:
+
+<img src="https://raw.githubusercontent.com/aymenfurter/terraform-apim-openai-example/main/assets/preview.png"/>
+
